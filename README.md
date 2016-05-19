@@ -1,10 +1,10 @@
 # About
 
-This script assists generating bills-of-materials (BOMs) as comma-delimited data using KiCad's schematic capture tool EESchema. The script looks for a special custom field added to schematic components which represents an internal part number. Details about internal part numbers are injected in to the output file from a sqlite3 database
+This script assists generating bills-of-materials (BOMs) as comma-delimited data using KiCad's schematic capture tool EESchema. The script looks for a special custom field added to schematic components which represents an internal part number. Details about internal part numbers are injected in to the output file from a sqlite3 database.
 
 # Requirements
 
-- Python 3 with (and libraries: lxml, sqlite3, and csv)
+- Python 3 (with libraries: lxml, sqlite3, and csv)
 
 # Usage
 
@@ -16,7 +16,7 @@ This script assists generating bills-of-materials (BOMs) as comma-delimited data
 
 - From the same dialog, click "Generate" and the script will run, saving a `.csv` file (in your KiCad project folder and named after your project if using the `%I` and `%O` tokens).
 
-Note: Any component references in the schematic without an `internal_part` field are printed to stdout and captured in the BOM generation dialog under *"Plugin Info."*
+**Note:** Any component references in the schematic without an `internal_part` field are printed to stdout and captured at the bottom of the BOM generation dialog under "Plugin Info."
 
 # Disclaimer
 
