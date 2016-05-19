@@ -12,7 +12,7 @@ This script assists generating bills-of-materials (BOMs) as comma-delimited data
 
 - In your schematic, add a custom field named `internal_part` to components, setting the field value to that of the corresponding part (i.e. primary key value) in the sqlite database.
 
-- In EESchema under *Tools -> Generate Bill of Materials*, add a new plugin, giving the paths to the plugin and database files, e.g. `/path/to/kibom.py "%I" "%O" /path/to/parts.sqlite`
+- In EESchema under *Tools -> Generate Bill of Materials*, add a new plugin, giving the paths to the plugin and database files, e.g. `/path/to/tzar-bomba.py "%I" "%O" /path/to/parts.sqlite`
 
 - From the same dialog, click "Generate" and the script will run, saving a `.csv` file (in your KiCad project folder and named after your project if using the `%I` and `%O` tokens).
 

@@ -7,7 +7,7 @@
 # This is intended to be called by EESchema's BOM generation tool as a plugin.
 # The "Command line" field of the plugin dialog should look something like:
 #
-# /path/to/kibom.py "%I" "%O" /path/to/parts.sqlite
+# /path/to/tzar-bomba.py "%I" "%O" /path/to/parts.sqlite
 #
 # For each schematic component, the value of custom field "part" is used to
 # extract details associated with that component from the sqlite3 database.
@@ -36,7 +36,7 @@ bom = defaultdict(list)  # refs grouped by unique internal part numbers
 components = etree.parse(infile).findall('.//comp')
 for c in components:
     ref = c.attrib['ref']
-    pns = c.findall("./fields/field[@name='part']")
+    pns = c.findall("./fields/field[@name='internal_part']")
     if len(pns) == 1:
         bom[pns[0].text].append(ref)
     else:
