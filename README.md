@@ -18,6 +18,8 @@ This script assists generating bills-of-materials (BOMs) as comma-delimited data
 
 **Note:** Any component references in the schematic without an `internal_part` field are printed to stdout and captured at the bottom of the BOM generation dialog under "Plugin Info."
 
+![BOM Generation Dialog](/screenshot.png?raw=true "BOM Generation Dialog")
+
 # Disclaimer
 
 I wrote this as a quick proof of concept while considering how to keep track of parts for my electronics projects. It's not intended to be secure, robust, or performant. Pull requests or suggestions are welcome, however. Tested with recent versions of KiCad on Linux.
