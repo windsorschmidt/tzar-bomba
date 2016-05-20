@@ -49,9 +49,9 @@ for c in components:
 line_items = []
 db = sqlite3.connect(dbfile)
 cur = db.execute('select * from parts')
-header = [['quantity'] +
-          [row[0] for row in cur.description] +
-          ['reference(s)']]
+header = [['Quantity'] +
+          [str.title(row[0].replace('_', ' ')) for row in cur.description] +
+          ['Reference(s)']]
 for part in bom:
     line = [str(len(bom[part]))]
     query = "SELECT * from parts where internal_part is '" + part + "'"
