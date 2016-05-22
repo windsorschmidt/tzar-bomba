@@ -1,0 +1,14 @@
+body {
+    font-family: sans-serif;
+}
+
+th {
+    background-color: #eee;
+}
+
+table tr:nth-child(odd) td{
+    background-color: #eee;
+}
+
+table tr:nth-child(even) td{
+}
