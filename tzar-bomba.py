@@ -74,7 +74,7 @@ if len(missing_refs):
 
 with open(outfile + '.csv', 'w') as csvfile:
     w = csv.writer(csvfile, delimiter=',')
-    for line in header + sorted(line_items, key=lambda line: line[1]):
+    for line in [header] + sorted(line_items, key=lambda line: line[1]):
         w.writerow(line)
     print('BOM written to ' + outfile + '.csv')
 
