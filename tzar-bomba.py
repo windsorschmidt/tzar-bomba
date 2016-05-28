@@ -26,6 +26,7 @@ import sys
 infile = sys.argv[1]   # XML bill-of-materials, exported from KiCad
 outfile = sys.argv[2]  # The base name of the output files we'll write to
 dbfile = sys.argv[3]   # A sqlite3 database holding component information
+datasheet_dir = sys.argv[4]  # Where I squirrel away my datasheets
 
 # Pull our internal part number field from each component in the XML file, and
 # use it to build up a dictionary where the keys are unique part numbers, and
@@ -80,7 +81,6 @@ with open(outfile + '.csv', 'w') as csvfile:
 
 # Save as HTML
 
-datasheet_dir = sys.argv[4] + '/'
 project = etree.parse(infile).findall('design/sheet/title_block/title')[0].text
 title = 'Bill of Materials: ' + project
 
@@ -99,7 +99,7 @@ with open(outfile + '.html', 'w') as f:
         f.write('        <th>' + str(col).replace(' ', '&nbsp;') + '</th>\n')
     f.write('      </tr>\n')
     for row in sorted(line_items, key=lambda line: line[1]):
-        datasheet = datasheet_dir + row[6] if row[6] else '#'
+        datasheet = datasheet_dir + '/' + row[6] if row[6] else '#'
         f.write('      <tr>\n')
         for i, col in enumerate(row[:6]):
             f.write('        <td>')
