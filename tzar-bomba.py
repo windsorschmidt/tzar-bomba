@@ -21,6 +21,11 @@ import sqlite3
 import csv
 import sys
 
+# Print some basic information about this exporter
+
+print('Setting us up the BOM...')
+print('Add DB reference field "internal_part" to schematic symbols.')
+
 # Using argpase would be safer, but hey, who wants to live forever!
 
 infile = sys.argv[1]   # XML bill-of-materials, exported from KiCad
@@ -63,8 +68,6 @@ for part in bom:
 db.close()
 
 # Print a summary to the console (displayed by EESchema's BOM tool)
-
-print('Setting us up the BOM...')
 print('Part references : {}'.format(len(components)))
 print('Line items      : {}'.format(len(line_items)))
 print('Unresolved refs : {}'.format(len(missing_refs)))
